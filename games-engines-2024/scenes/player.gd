@@ -2,9 +2,6 @@ extends MeshInstance3D
 
 @export var speed:float = -1
 @export var rot_speed = 180
-var radius: int
-var bricks: int
-var height: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

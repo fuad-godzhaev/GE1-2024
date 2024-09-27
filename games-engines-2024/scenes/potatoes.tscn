@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b17nonldajtjb"]
+[gd_scene load_steps=11 format=3 uid="uid://b17nonldajtjb"]
 
 [ext_resource type="Material" uid="uid://d3rd1s1ychb8g" path="res://green.tres" id="1_yjew8"]
 [ext_resource type="Material" uid="uid://drwyx56xy0mui" path="res://blue.tres" id="2_rqu0b"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="3_8i6hg"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="4_iogm8"]
+[ext_resource type="PackedScene" uid="uid://qajyjkystcg7" path="res://scenes/brick.tscn" id="5_ett3p"]
+[ext_resource type="Script" path="res://scenes/tower.gd" id="6_og628"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61bfn"]
 size = Vector2(100, 100)
@@ -11,6 +14,8 @@ size = Vector2(100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1kr5n"]
 size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bt1di"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -35,3 +40,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, 0.5, 0.707107, -0.707107, 0.707107, 0, -0.5, -0.5, 0.707107, 0, 0, 0)
+
+[node name="wall" type="Node3D" parent="."]
+script = ExtResource("4_iogm8")
+brick_scene = ExtResource("5_ett3p")
+
+[node name="tower" type="Node3D" parent="."]
+script = ExtResource("6_og628")
+
+[node name="block" type="MeshInstance3D" parent="tower"]
+material_override = ExtResource("1_yjew8")
+mesh = SubResource("BoxMesh_bt1di")
+skeleton = NodePath("../..")
