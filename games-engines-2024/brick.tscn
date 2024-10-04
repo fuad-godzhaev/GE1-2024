@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://buu3aq61omx1k"]
+[gd_scene load_steps=4 format=3 uid="uid://cthes4ujjq34"]
+
+[ext_resource type="Script" path="res://brick.gd" id="1_gqxoa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_k1byt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gw8lq"]
 
 [node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_gqxoa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_k1byt")

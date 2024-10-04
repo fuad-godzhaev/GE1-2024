@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	var v = Vector3()	
 	v = global_transform.basis.z	
 	print(global_transform.basis.z)	 
-	velocity = - v * speed * f
+	velocity = v * speed * f
 	
 	move_and_slide()
 	
@@ -49,5 +49,6 @@ func _physics_process(delta: float) -> void:
 	
 		bullet.global_position = bullet_spawn.global_position
 		bullet.global_rotation = global_rotation
+		
 	
 	pass
