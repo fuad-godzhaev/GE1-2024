@@ -15,8 +15,14 @@ func _process(delta: float) -> void:
 	# global_position.z += speed * delta
 	
 	var f = Input.get_axis("move_back", "move_forward")
+
+	var v = Vector3()
+	v = global_transform.basis.z
+	print(v)
+	velocity = v * speed * f
+	move_and_slide()
 	
-	translate(Vector3(0, 0, f * delta * speed))
+	##translate(Vector3(0, 0, f * delta * speed))
 	# rotate_y()
 	# rotate_y(deg_to_rad(rot_speed) * delta)
 	# rotate_x(deg_to_rad(rot_speed) * delta)
