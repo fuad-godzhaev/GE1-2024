@@ -18,7 +18,7 @@ size = Vector2(100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_k81l3"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_clrcm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qwlw"]
 
 [sub_resource type="Environment" id="Environment_weg3u"]
 
@@ -52,7 +52,6 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_1hidi")
 speed = 10.0
-rot_speed = null
 
 [node name="player" type="MeshInstance3D" parent="CharacterBody3D"]
 material_override = ExtResource("2_cp1av")
@@ -66,14 +65,14 @@ shape = SubResource("BoxShape3D_tuvxv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.12863)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515292, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/StaticBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.708787, 0.488514)
 mesh = SubResource("BoxMesh_k81l3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_clrcm")
+shape = SubResource("BoxShape3D_0qwlw")
 
 [node name="Marker3D2" type="Marker3D" parent="CharacterBody3D"]
 

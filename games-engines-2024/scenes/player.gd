@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var rot_speed = 180.0
 
 @export var bullet_scene:PackedScene
-@export var bullet_scene:Node3D
+@export var bullet_spawn:Node3D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 	print(v)
 	velocity = -v * speed * f
 	move_and_slide()
-	
 	rotate_y(-deg_to_rad(rot_speed) * r * delta)
 	
 	DebugDraw2D.set_text("position", position)
@@ -40,10 +39,10 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shoot"):
 		var bullet = bullet_scene.instantiate()
+		get_parent().add_child(bullet)
+		
 		bullet.global_position = bullet_spawn.global_rotation
 		bullet.global_rotation = bullet_spawn.global_rotation
-		
-		get_parent().add_child(bullet)
 	
 	##translate(Vector3(0, 0, f * delta * speed))
 	# rotate_y()
