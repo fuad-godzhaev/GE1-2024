@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b17nonldajtjb"]
+[gd_scene load_steps=14 format=3 uid="uid://b17nonldajtjb"]
 
 [ext_resource type="Material" uid="uid://d3rd1s1ychb8g" path="res://green.tres" id="1_ljfv3"]
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_r72lm"]
@@ -16,6 +16,10 @@ size = Vector2(100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuvxv"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_k81l3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clrcm"]
+
 [sub_resource type="Environment" id="Environment_weg3u"]
 
 [node name="root" type="Node3D"]
@@ -30,7 +34,7 @@ player = NodePath("../CharacterBody3D")
 transform = Transform3D(0.597812, 0.487615, 0.63628, -0.63207, 0.774911, 0, -0.493061, -0.402174, 0.771458, 0, 0, 0)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, 1)
+transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, 5)
 script = ExtResource("4_x4eqr")
 brick_scene = ExtResource("5_nw2f7")
 
@@ -48,6 +52,7 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_1hidi")
 speed = 10.0
+rot_speed = null
 
 [node name="player" type="MeshInstance3D" parent="CharacterBody3D"]
 material_override = ExtResource("2_cp1av")
@@ -59,6 +64,18 @@ shape = SubResource("BoxShape3D_tuvxv")
 
 [node name="Marker3D" type="Marker3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.12863)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/StaticBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.708787, 0.488514)
+mesh = SubResource("BoxMesh_k81l3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_clrcm")
+
+[node name="Marker3D2" type="Marker3D" parent="CharacterBody3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_weg3u")

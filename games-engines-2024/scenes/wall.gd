@@ -14,9 +14,9 @@ func _ready() -> void:
 			
 			var m = StandardMaterial3D
 			var h = ((row * cols) + col) / float(rows * col)
-			m.albedo_color = Color.from_hsv(h, 1, 1)
-			var mesh:MeshInstance3D = brick.get_node("MeshInstance3D")
-			m.set_surface_override_material(0, m)
+			#m.albedo_color = Color.from_hsv(h, 1.0, 1.0)
+			#var mesh:MeshInstance3D = brick.get_node("MeshInstance3D")
+			#m.set_surface_override_material(0, m)
 			add_child(brick)
 
 	pass # Replace with function body.
