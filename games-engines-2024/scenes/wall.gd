@@ -12,6 +12,7 @@ func _ready() -> void:
 			var pos = Vector3(col, row, 0)
 			brick.position = pos
 			add_child(brick)
+	
 	pass # Replace with function body.
 
 
