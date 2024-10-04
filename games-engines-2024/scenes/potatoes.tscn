@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b17nonldajtjb"]
+[gd_scene load_steps=12 format=3 uid="uid://b17nonldajtjb"]
 
 [ext_resource type="Material" uid="uid://d3rd1s1ychb8g" path="res://green.tres" id="1_ljfv3"]
+[ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_r72lm"]
 [ext_resource type="Material" uid="uid://drwyx56xy0mui" path="res://blue.tres" id="2_cp1av"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="3_1hidi"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="4_x4eqr"]
-[ext_resource type="PackedScene" path="res://brick.tscn" id="5_nw2f7"]
+[ext_resource type="PackedScene" uid="uid://cthes4ujjq34" path="res://brick.tscn" id="5_nw2f7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -15,16 +16,21 @@ size = Vector2(100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuvxv"]
 
+[sub_resource type="Environment" id="Environment_weg3u"]
+
 [node name="root" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687456, 2.61818)
+script = ExtResource("1_r72lm")
+target = NodePath("../CharacterBody3D/Marker3D")
+player = NodePath("../CharacterBody3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.597812, 0.487615, 0.63628, -0.63207, 0.774911, 0, -0.493061, -0.402174, 0.771458, 0, 0, 0)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, -5.7109)
+transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, 1)
 script = ExtResource("4_x4eqr")
 brick_scene = ExtResource("5_nw2f7")
 
@@ -41,6 +47,7 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_1hidi")
+speed = 10.0
 
 [node name="player" type="MeshInstance3D" parent="CharacterBody3D"]
 material_override = ExtResource("2_cp1av")
@@ -49,3 +56,9 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("BoxShape3D_tuvxv")
+
+[node name="Marker3D" type="Marker3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.12863)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_weg3u")
