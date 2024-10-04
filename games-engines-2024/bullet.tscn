@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b120xufp0lngv"]
+[gd_scene load_steps=6 format=3 uid="uid://b120xufp0lngv"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_12hsy"]
 
@@ -8,8 +8,9 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4njcl"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_71tlw"]
-lifetime_randomness = 0.55
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l2hj5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aj3pc"]
 
 [node name="bullet" type="CharacterBody3D"]
 script = ExtResource("1_12hsy")
@@ -23,10 +24,12 @@ shape = SubResource("BoxShape3D_4njcl")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="Explosion" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0935045, 0)
 emitting = false
-process_material = SubResource("ParticleProcessMaterial_71tlw")
 one_shot = true
 explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_l2hj5")
+draw_pass_1 = SubResource("BoxMesh_aj3pc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

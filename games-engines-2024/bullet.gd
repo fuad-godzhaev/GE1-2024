@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	var explosions = $GPUParticles2D
+	var explosions = $Explosion
 	
 	explosions.emitting = true
 	await get_tree().create_timer(explosions.lifetime).timeout

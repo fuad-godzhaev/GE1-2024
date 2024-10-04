@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	apply_central_impulse(Vector3(-10, 10, -5))
+	#apply_central_impulse(Vector3(-10, 10, -5))
 	pass
