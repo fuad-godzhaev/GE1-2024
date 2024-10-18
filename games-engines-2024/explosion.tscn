@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvur0kt6sopk8"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ipe13"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+inherit_velocity_ratio = 500.0
+spread = 55.112
+gravity = Vector3(0, 0, 0)
+scale_min = 178.42
+scale_max = 178.42
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_ipe13")
+explosiveness = 1.0
