@@ -9,16 +9,18 @@ func _ready() -> void:
 	for row in range(rows):
 		for col in range(cols):
 			var brick = brick_scene.instantiate()
+			brick.name = "brick"
+			add_child(brick)
+
 			var pos = Vector3(col, row, 0)
 			brick.position = pos
 			
 			var m = StandardMaterial3D.new()
-			var h = ((row * cols) + col) / float(rows * col)
-			m.albedo_color = Color.from_hsv(h, 1.0, 1.0)
+			var h = ((row * cols) + col) / (float)(rows * cols)
+			m.albedo_color = Color.from_hsv(h, 1, 1)
 			var mesh:MeshInstance3D = brick.get_node("MeshInstance3D")
 			mesh.set_surface_override_material(0, m)
-			add_child(brick)
-
+	
 	pass # Replace with function body.
 
 
