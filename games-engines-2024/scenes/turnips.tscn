@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dckxhsmjtsjce"]
+[gd_scene load_steps=9 format=3 uid="uid://bl1ykbn3ngao8"]
 
 [ext_resource type="Script" path="res://scenes/wall.gd" id="2_6aieb"]
-[ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="3_uuov8"]
-[ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_o0x4m"]
+[ext_resource type="PackedScene" uid="uid://cthes4ujjq34" path="res://brick.tscn" id="3_uuov8"]
+[ext_resource type="Material" uid="uid://d3rd1s1ychb8g" path="res://green.tres" id="4_o0x4m"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="5_cqk1p"]
 [ext_resource type="Script" path="res://scenes/tower.gd" id="8_gqgtq"]
 
@@ -24,6 +24,7 @@ script = ExtResource("2_6aieb")
 brick_scene = ExtResource("3_uuov8")
 
 [node name="Marker3D" type="Marker3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51584, 0, -6.13543)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

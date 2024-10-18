@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	var w = Input.get_axis("move_back", "move_forward")
 	if w:
 		var dir = global_transform.basis.z
-		dir.y = 0
+		#dir.y = 0
 		dir = dir.normalized()
 		velocity += w * dir
 
