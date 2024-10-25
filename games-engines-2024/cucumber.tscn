@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://hnbgf6d67afd"]
+[gd_scene load_steps=15 format=3 uid="uid://hnbgf6d67afd"]
 
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_d4ujk"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_jstr4"]
 [ext_resource type="PackedScene" uid="uid://cthes4ujjq34" path="res://brick.tscn" id="2_6gqbu"]
+[ext_resource type="Script" path="res://enemy.gd" id="3_e3lht"]
 [ext_resource type="Material" uid="uid://d3rd1s1ychb8g" path="res://green.tres" id="3_y855q"]
 [ext_resource type="Script" path="res://scenes/tower.gd" id="6_g326r"]
 [ext_resource type="Material" uid="uid://drwyx56xy0mui" path="res://blue.tres" id="6_uvyeu"]
@@ -16,6 +17,9 @@ size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00lii"]
 size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3e4pw"]
+size = Vector3(1, 1, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aodkp"]
 size = Vector2(100, 100)
@@ -61,7 +65,9 @@ one_shot = true
 transform = Transform3D(-1, 1.9868e-08, -8.51352e-08, 0, 0.973833, 0.227263, 8.74228e-08, 0.227263, -0.973833, -3.47578e-07, 1.57121, -3.97583)
 
 [node name="enemy" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67297, 0.83075, 2.58459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65984, 2.03427, 2.83146)
+mesh = SubResource("BoxMesh_3e4pw")
+script = ExtResource("3_e3lht")
 
 [node name="wall" type="Node3D" parent="."]
 transform = Transform3D(0.599429, 0, -0.800428, 0, 1, 0, 0.800428, 0, 0.599429, -10.4284, 0, 9.54581)
