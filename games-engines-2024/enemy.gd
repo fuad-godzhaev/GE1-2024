@@ -24,8 +24,9 @@ func _ready() -> void:
 	
 	axis = to_player.cross(forw)
 	theta = acos(to_player.dot(forw))
+	axis = axis.normalized()
 	
-	q2 = Quaternion(axis, theta)
+	q2 = Quaternion(-axis, theta)
 	q1 = global_basis.get_rotation_quaternion()
 	t = 0
 	
@@ -44,7 +45,7 @@ func _process(delta: float) -> void:
 	var q:Quaternion
 	
 	if (t < 1.0):
-		t = t + delta
+		t = t + delta * 0.1
 	else:
 		t = 1.0
 		
