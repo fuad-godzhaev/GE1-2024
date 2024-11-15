@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ckdn7ib2w66n8"]
+
+[node name="TerrainTileSingle" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.44299)
